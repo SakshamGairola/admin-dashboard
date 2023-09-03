@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "269e09a8-55f9-4bb5-8d2e-d2f243ac75d5",
+		"name": "admin-dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19251230"
+	},
+	"item": [
+		{
+			"name": "Admin-Approve/Reject",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"mentorId\": 1,\r\n\t\"name\": \"bjkashdjkas\",\r\n\t\"age\": 100,\r\n\t\"phoneNumber\": \"1231\",\r\n\t\"jobRole\": \"sfd\",\r\n\t\"mentorRequest\": {\r\n\t\t\"mentorRequestId\": 1,\r\n\t\t\"name\": \"Saksham\",\r\n\t\t\"cv\": \"1\",\r\n\t\t\"approved\": true\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}/admin/approval?approvalStatus=approve&requestId=2",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"admin",
+						"approval"
+					],
+					"query": [
+						{
+							"key": "approvalStatus",
+							"value": "approve"
+						},
+						{
+							"key": "requestId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All MentorRequests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/mentorRequest/all",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"mentorRequest",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create MentorRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"sam\",\r\n\t\"cv\": \"sam_cv\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}/mentorRequest/create",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"mentorRequest",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create MentorRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"John\",\r\n\t\"cv\": \"john_cv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/mentorRequest/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mentorRequest",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Sep 2023 07:33:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\"mentorRequestId\":1,\"name\":\"John\",\"cv\":\"23\",\"isApproved\":null}"
+				}
+			]
+		},
+		{
+			"name": "EditMentor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"mentorId\": 2,\r\n\t\"jobRole\": \"HR\",\r\n\t\"age\": \"20\",\r\n\t\"phoneNumber\": \"1234657980\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}/mentor/edit",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"mentor",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Mentor By id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/mentor/get/2",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"mentor",
+						"get",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by name or job role",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/mentor/get?searchKey=doe",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"mentor",
+						"get"
+					],
+					"query": [
+						{
+							"key": "searchKey",
+							"value": "ama",
+							"disabled": true
+						},
+						{
+							"key": "searchKey",
+							"value": "doe"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "localhost:8080"
+		}
+	]
+}
