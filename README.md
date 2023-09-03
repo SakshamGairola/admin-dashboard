@@ -1,5 +1,6 @@
-# Read Me First
-This application stores and calculates distance between stored coordinates for 2 wheeler vehicles.
+# Admin Dashboard
+This is a backend service for an admin dashboard where you can perform administrative tasks such as see, 
+approve/reject requests. Generate statistics 
 
 
 # Getting Started
